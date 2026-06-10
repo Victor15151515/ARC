@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# =================================================================
+# ARC - Semana 10: Automação de Usuários via CSV (Padrão Seguro)
+# Prof. Gaio | IFSP
+# =================================================================
+
+ARQUIVO="rh_lista.csv"
+SETOR_ALVO="ti"
+
+# Verificação: o arquivo não existe
+if [ ! -f "$ARQUIVO" ]; then
+    echo "[ERRO] Arquivo $ARQUIVO não encontrado!"
+    exit 1
+fi
+
+# Verificação: precisa ser root
+if [ "$EUID" -ne 0 ]; then
+    echo "[ERRO] Execute como root (sudo)."
+    exit 1
+fi
+
+echo "--- Iniciando provisionamento para o setor: $SETOR_ALVO ---"
+
+# -----------------------------------------------------------------
+# FLUXO DE DADOS:
+# 1. 'grep' filtra pelo setor
+# 2. 'while' processa cada linha
+# 3. 'cut' extrai cada campo necessário
+# -----------------------------------------------------------------
+# Especificando o setor
+
+grep "$SETOR_ALVO" "$ARQUIVO" | while read LINHA; do
+
+    LOGIN=$(echo "$LINHA" | cut -d ";" -f 1)
+    SETOR=$(echo "$LINHA" | cut -d ";" -f 2)
+    CARGO=$(echo "$LINHA" | cut -d ";" -f 3)
+    GRUPO_SEC=$(echo "$LINHA" | cut -d ";" -f 4)
+
+    # Verificação de existência
+    if id "$LOGIN" &> /dev/null; then
+        echo "[PULANDO] O usuário $LOGIN já existe."
+    else
+        # Criar grupo secundário se não existir
+        if ! getent group "$GRUPO_SEC" > /dev/null; then
+            echo "[INFO] Criando grupo secundário: $GRUPO_SEC"
+            groupadd "$GRUPO_SEC"
+        fi
+
+        # Criar usuário
+        useradd -m -s /bin/bash -c "$CARGO - $SETOR" "$LOGIN"
+
+        # Definir senha padrão e forçar troca
+        echo "$LOGIN:Mudar@123" | chpasswd
+        chage -d 0 "$LOGIN"
+
+        # Adicionar ao grupo secundário
+        usermod -aG "$GRUPO_SEC" "$LOGIN"
+
+        echo "[SUCESSO] Usuário $LOGIN criado (Setor: $SETOR, Grupo: $GRUPO_SEC)."
+    fi
+
+done
+
+echo "--- Processamento finalizado! ---"

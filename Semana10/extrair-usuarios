@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# ==========================================================
+# Script: extrair_usuarios.sh
+=
+
+ARQUIVO="/etc/passwd"
+
+# Verificação: arquivo existe?
+if [ ! -f "$ARQUIVO" ]; then
+    echo "[ERRO] Arquivo $ARQUIVO não encontrado!"
+    exit 1
+fi
+
+echo "--- Extraindo nomes de usuários ---"
+
+# -----------------------------------------------------------------
+# FLUXO:
+# 1. 'cut' usa ":" como delimitador
+# 2. '-f 1' pega apenas a primeira coluna (login)
+# -----------------------------------------------------------------
+
+cut -d ":" -f 1 "$ARQUIVO" | while read USUARIO; do
+    echo "$USUARIO"
+done
+
+echo "--- Finalizado ---"
