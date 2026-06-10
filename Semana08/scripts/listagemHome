@@ -1,0 +1,85 @@
+/home:
+total 4,0K
+drwxr-x--- 18 aluno aluno 4,0K abr  8 19:41 aluno
+
+/home/aluno:
+total 44K
+drwxrwxr-x 2 aluno aluno 4,0K mar  4 19:54 arc
+drwxr-xr-x 2 aluno aluno 4,0K jul 18  2023 Área de Trabalho
+drwxr-xr-x 3 aluno aluno 4,0K abr  8 19:42 Documentos
+drwxr-xr-x 2 aluno aluno 4,0K abr  8 19:41 Downloads
+drwxrwxr-x 2 aluno aluno 4,0K abr  8 19:41 gaio
+drwxr-xr-x 2 aluno aluno 4,0K jul 18  2023 Imagens
+drwxr-xr-x 2 aluno aluno 4,0K jul 18  2023 Modelos
+drwxr-xr-x 2 aluno aluno 4,0K jul 18  2023 Música
+drwxr-xr-x 2 aluno aluno 4,0K jul 18  2023 Público
+drwx------ 4 aluno aluno 4,0K mar  4 19:28 snap
+drwxr-xr-x 2 aluno aluno 4,0K jul 18  2023 Vídeos
+
+/home/aluno/arc:
+total 0
+
+/home/aluno/Área de Trabalho:
+total 0
+
+/home/aluno/Documentos:
+total 4,0K
+drwxrwxr-x 2 aluno aluno 4,0K abr  8 20:15 scrips
+
+/home/aluno/Documentos/scrips:
+total 84K
+-rw-rw-r-- 1 aluno aluno 76K abr  8 20:05 binarios
+-rw-rw-r-- 1 aluno aluno   0 abr  8 20:15 erros
+-rw-rw-r-- 1 aluno aluno   0 abr  8 20:15 listagemHome
+-rw-rw-r-- 1 aluno aluno  26 abr  8 20:08 meuArquivo
+-rwxrwxr-x 1 aluno aluno 243 abr  8 19:56 script3.sh
+
+/home/aluno/Downloads:
+total 0
+
+/home/aluno/gaio:
+total 0
+
+/home/aluno/Imagens:
+total 0
+
+/home/aluno/Modelos:
+total 0
+
+/home/aluno/Música:
+total 0
+
+/home/aluno/Público:
+total 0
+
+/home/aluno/snap:
+total 8,0K
+drwxr-xr-x 4 aluno aluno 4,0K mar  4 19:28 firefox
+drwxr-xr-x 4 aluno aluno 4,0K jul 18  2023 snapd-desktop-integration
+
+/home/aluno/snap/firefox:
+total 8,0K
+drwxr-xr-x 4 aluno aluno 4,0K mar  4 19:28 2356
+drwxr-xr-x 4 aluno aluno 4,0K mar  4 19:28 common
+lrwxrwxrwx 1 aluno aluno    4 mar  4 19:28 current -> 2356
+
+/home/aluno/snap/firefox/2356:
+total 0
+
+/home/aluno/snap/firefox/common:
+total 0
+
+/home/aluno/snap/snapd-desktop-integration:
+total 8,0K
+drwxr-xr-x 4 aluno aluno 4,0K jul 18  2023 49
+drwxr-xr-x 3 aluno aluno 4,0K jul 18  2023 common
+lrwxrwxrwx 1 aluno aluno    2 jul 18  2023 current -> 49
+
+/home/aluno/snap/snapd-desktop-integration/49:
+total 0
+
+/home/aluno/snap/snapd-desktop-integration/common:
+total 0
+
+/home/aluno/Vídeos:
+total 0
