@@ -1,0 +1,20 @@
+#!/bin/bash
+clear
+
+# Diretório base onde as pastas serão criadas
+DIRETORIO_BASE="."
+
+# Laço para criar as 20 semanas
+for i in $(seq -f "%02g" 1 20); do
+    # Nome do diretório
+    nome_diretorio="semana-$i"
+    
+    # Cria o diretório
+    mkdir -p "$DIRETORIO_BASE/$nome_diretorio"
+    
+    echo "Criado diretório: $nome_diretorio"
+done
+
+#O comando seq -f "%02g" 1 20 gera números de 01 a 20, garantindo que todos os diretórios tenham dois dígitos (como semana-01, semana-02).
+#O mkdir -p cria os diretórios dentro de um diretório base (pode ser alterado se necessário).
+#O script também exibe uma mensagem para cada diretório criado.

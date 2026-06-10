@@ -1,0 +1,16 @@
+#!/bin/bash
+clear
+
+# Prefixo comum para as contas de usuário
+PREFIXO="usuario"  # Altere conforme necessário
+
+# Laço
+for usuario in $(cut -d: -f1 /etc/passwd); do
+    # Verifica se o nome do usuário começa com o prefixo e é seguido de números
+    if [[ "$usuario" =~ ^$PREFIXO[0-9]+$ ]]; then
+        echo "Removendo o usuário: $usuario"
+        
+        # Remove o usuário e o diretório home com a opção --remove-home
+        deluser --remove-home "$usuario"
+    fi
+done
